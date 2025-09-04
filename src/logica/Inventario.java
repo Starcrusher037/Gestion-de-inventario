@@ -2,10 +2,12 @@
 package logica;
 
 import java.util.HashMap;
+import java.util.Scanner;
 
 
 public class Inventario {
     
+    Scanner sc = new Scanner (System.in);
     private HashMap <String , Producto> productos;
 
     public Inventario() {
@@ -19,8 +21,10 @@ public class Inventario {
     }
     
     //METODO PARA AGREGAR PRODUCTOS
-    public void agregarProductos(Producto p){
-        if (p != null) productos.put(p.getNombre(), p);
+    public void agregarProductos(){
+        Producto p = new Producto();
+        p.crearProducto(sc);
+        if (p != null) productos.put(p.getNombre(), p);  //CREAR MEODO PARA DETERMINAR ID PRODUCTO
     }
     
     //METODO PARA BUSCAR PRODUCTOS POR CODIGO,  POR NOMBRE Y POR DESCRIPCION
