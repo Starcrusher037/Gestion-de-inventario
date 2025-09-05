@@ -10,7 +10,7 @@ public class App {
         Scanner sc = new Scanner (System.in);
         MenuPrincipal menu = new MenuPrincipal();        
         
-        menu.mostrarMenu(sc);
+        menu.mostrarMenu();
         
    }
     
