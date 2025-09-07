@@ -37,7 +37,7 @@ public class Validador {
         }
     }
 
-    //Verifica caracteres y longitud del rut
+    /*Verifica caracteres y longitud del rut
     public static int verificarRut(Scanner sc) {
         int rutCliente;
         String rutC;
@@ -78,4 +78,5 @@ public class Validador {
         rutC = rutC + "-" + digitoVerificador;
         return rutC;
     }
+*/
 }

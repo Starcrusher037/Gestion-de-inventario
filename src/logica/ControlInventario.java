@@ -1,9 +1,6 @@
 
 package logica;
 
-import java.util.HashMap;
-
-
 public class ControlInventario {
     
     private VistaInventario vista ;
@@ -14,12 +11,15 @@ public class ControlInventario {
         this.modelo = modelo;
     }
     
+    
     public void agregarProductos(){
         Producto p = vista.crearProducto();
-        if (modelo.existeProducto(p.getNombre())) vista.mostrarMensaje("Ya existe un producto con ese nombre");
+        if (modelo.existeProducto(p.getCodigo())) vista.mostrarMensaje("Ya existe un producto con ese nombre");
         else {
-            modelo.agregarProductos(p);
-            vista.mostrarMensaje("Producto agregado correctamente");
+            if(p!=null){
+                modelo.agregarProductos(p);
+                vista.mostrarMensaje("Producto agregado correctamente");
+            }else vista.mostrarMensaje("El producto que intenta agregar no es valido");
         }
     }
     
@@ -27,28 +27,31 @@ public class ControlInventario {
         vista.mostrarListadoProductos(modelo.getProductos());
     }
     
-    public Producto obtenerProducto(){
+    public Producto obtenerPorNombre(){
         Producto p;
         String nombre = vista.preguntarNombreProducto();
-        if (modelo.existeProducto(nombre)){
-            p = modelo.getProductos().get(nombre);
-            return p;
-        }else return null;   
-        
+        if (modelo.consultaPorNombre(nombre)){
+            for (Producto prod : modelo.getProductos().values()){
+                if (prod.getNombre().equalsIgnoreCase(nombre)) return prod;
+            }
+        } 
+        return null;
     }
     
     public Producto obtenerPorId(){    
         int id = vista.preguntarIdProducto();
         for (Producto p : modelo.getProductos().values()){
-            if (p.getCodigo().equals(id)) return p;
+            if (p.getCodigo() == id) {
+            return p;
+            }
         }
         return null;
     }
     
     public void eliminarProducto(){
-        String nombre = vista.preguntarNombreProducto();
-        if (modelo.existeProducto(nombre)) {
-            modelo.eliminarProducto(nombre);
+        int id = vista.preguntarIdProducto();
+        if (modelo.existeProducto(id)) {
+            modelo.eliminarProducto(id);
             vista.mostrarMensaje("Producto eliminado del inventario");
         }
         else vista.mostrarMensaje("El producto no exite en el inventario");

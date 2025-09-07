@@ -4,18 +4,14 @@ package logica;
 import java.util.Scanner;
 
 
-public class ControlProducto {
-    
+public class ControlProducto {    
     VistaProducto v;
-
-  
-    
 
     public ControlProducto(VistaProducto v) {
         this.v = v;
     }
    
-     //METODO PARA ACTUALIZAR PRODUCTO
+    //METODO PARA ACTUALIZAR PRECIO DEL PRODUCTO
     public void cambiarPrecio(Scanner sc, Producto producto){
         if (producto == null) {
             v.mostrarMensaje("El producto no existe");
@@ -24,7 +20,7 @@ public class ControlProducto {
         v.mostrarNombrePrecioActual(producto);
         producto.setPrecio(v.cambiarPrecio());
         v.mostrarNombrePrecioActual(producto);
-    }
+    } 
     
     
 }

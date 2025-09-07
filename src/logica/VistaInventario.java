@@ -12,8 +12,7 @@ public class VistaInventario {
     public VistaInventario() {
     }
     
-    
-    //TRABAJAR AQUI
+    //SOLICITA AL USUARIO INGRESAR LOS DATOS PARA CREAR UN PRODUCTO.
     public Producto crearProducto(){
         System.out.println("\nIngresa el nombre del producto");
         String nombre = sc.nextLine();
@@ -24,7 +23,7 @@ public class VistaInventario {
         System.out.println("Ingrese la cantidad de productos a disposicion");
         int cantidad = sc.nextInt();
         sc.nextLine();
-        return new Producto("0012",nombre,descripcion,precio,cantidad);
+        return new Producto(101,nombre,descripcion,precio,cantidad);
     }
     
     //METODO PARA GENERAR INFORMES DEL INVENTARIO
@@ -32,9 +31,8 @@ public class VistaInventario {
     
     }
     
-    
-    //METODO PARA MOSTRAR LISTADO DE LOS PRODUCTOS EXISTENTES           ______CORREGIR ESPACIOS______
-    public void mostrarListadoProductos(HashMap<String, Producto> productos){
+    //METODO PARA MOSTRAR LISTADO DE LOS PRODUCTOS EXISTENTES          
+    public void mostrarListadoProductos(HashMap<Integer, Producto> productos){
         if(productos.isEmpty()) System.out.println("!!NO HAY PRODUCTOS EN EL INVENTARIO¡¡\n");
         else{
             System.out.printf("%-30s %-10s%n","NOMBRE","CANTIDAD");
@@ -48,6 +46,8 @@ public class VistaInventario {
         System.out.println(mensaje);
     }
     
+    
+    //ESTOS 2 SIGUIENTES METODOS SOLICITAN POR TECLADO EL ID//NOMBRE
     public int preguntarIdProducto(){
         System.out.println("Ingrese el id del producto");
         int id = Validador.validarEntero(sc);
@@ -59,12 +59,5 @@ public class VistaInventario {
         String nombre = sc.nextLine();
         return nombre;
     }
-    
-    
-      /*PODEMOS JUGAR CON EL METODO PARA DETERMINAR QUE ES LO QUE VA A COMPARAR
-    public void existente(Producto p){  
-        if (productos.containsValue(p)) System.out.println("Ya existe un producto con ese nombre.");
-        else System.out.println("No existe un producto con ese nombre");    
-    }
-    */
+  
 }

@@ -5,14 +5,15 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class Producto {
     
-    private String codigo,nombre,descripcion;
+    private String nombre,descripcion;
+    private int codigo;
     private double precio;
-    private AtomicInteger cantidadStock;
+    private AtomicInteger cantidadStock = new AtomicInteger(0);
 
     public Producto() {
     }
 
-    public Producto(String codigo, String nombre, String descripcion, double precio, int cantidadInicial) {
+    public Producto(int codigo, String nombre, String descripcion, double precio, int cantidadInicial) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -20,9 +21,9 @@ public class Producto {
         this.cantidadStock = new AtomicInteger(cantidadInicial);
     }
 
-    public String getCodigo() {return codigo;}
+    public int getCodigo() {return codigo;}
 
-    public void setCodigo(String codigo) {this.codigo = codigo;}
+    public void setCodigo(int codigo) {this.codigo = codigo;}
 
     public String getNombre() {return nombre;}
 
@@ -37,5 +38,10 @@ public class Producto {
     public void setPrecio(double precio) {this.precio = precio;}
 
     public AtomicInteger getCantidadStock() {return cantidadStock;}
+
+    public void setCantidadStock(AtomicInteger cantidadStock) {
+        this.cantidadStock = cantidadStock;
+    }
+    
     
 }
