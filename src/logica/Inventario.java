@@ -40,6 +40,16 @@ public class Inventario {
         }
         return false;
     }
+    
+    //CALCULA EL VALOR TOTAL DE LOS PRODUCTOS DEL INVENTARIO.
+    public double precioTotalInventario(){
+     double valorInventarioCompleto = 0;
+            for (Producto p : productos.values()){
+                valorInventarioCompleto += p.getCantidadStock().get() * p.getPrecio();
+            }
+        return valorInventarioCompleto;
+    }
+    
 }
 
 

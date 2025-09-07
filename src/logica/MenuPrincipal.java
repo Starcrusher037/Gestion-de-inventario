@@ -86,6 +86,7 @@ public class MenuPrincipal {
                     c_producto.cambiarPrecio(sc, p);
                     continue;
                 case 6: // GENERAR INFORME
+                    c_inventario.mostrarInforme();
                     continue;
                 case 7:
                     return;

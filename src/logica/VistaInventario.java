@@ -23,12 +23,26 @@ public class VistaInventario {
         System.out.println("Ingrese la cantidad de productos a disposicion");
         int cantidad = sc.nextInt();
         sc.nextLine();
-        return new Producto(101,nombre,descripcion,precio,cantidad);
+        return new Producto(nombre,descripcion,precio,cantidad);
     }
     
     //METODO PARA GENERAR INFORMES DEL INVENTARIO
-    public void generarInforme(){
-    
+    public void generarInforme(HashMap<Integer, Producto> productos,double valorTotal){
+        if(productos.isEmpty()) System.out.println("!!NO HAY PRODUCTOS EN EL INVENTARIO¡¡\n");
+        else{
+            System.out.println("---------------------------------------------------------------------------------------");
+            System.out.println("\n___INFORME DEL INVENTARIO___");
+            System.out.println("Fecha: "+ java.time.LocalDate.now());
+            System.out.println("\nCODIGO | NOMBRE              | PRECIO    | STOCK | VALOR TOTAL STOCK");
+            for (Producto p : productos.values()){
+                int stock = p.getCantidadStock().get();
+                double valorTotalStock = stock * p.getPrecio();
+                System.out.printf("%-6d | %-18s | %-9.2f | %-5d | %.2f%n",p.getCodigo(),p.getNombre(),p.getPrecio(),stock,valorTotalStock);
+            }
+            System.out.println("\nCantidad de productos distintos en inventario: "+productos.size());
+            System.out.println("Valor total del inventario $"+valorTotal);
+             System.out.println("---------------------------------------------------------------------------------------");
+        }
     }
     
     //METODO PARA MOSTRAR LISTADO DE LOS PRODUCTOS EXISTENTES          

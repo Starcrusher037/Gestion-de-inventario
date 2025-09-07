@@ -13,6 +13,7 @@ public class Producto {
     public Producto() {
     }
 
+    //CONSTRUCTOR MANUAL
     public Producto(int codigo, String nombre, String descripcion, double precio, int cantidadInicial) {
         this.codigo = codigo;
         this.nombre = nombre;
@@ -20,6 +21,17 @@ public class Producto {
         this.precio = precio;
         this.cantidadStock = new AtomicInteger(cantidadInicial);
     }
+
+    //ID generado automaticamente
+    public Producto(String nombre, String descripcion, double precio,int cantidadInicial) {
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.precio = precio;
+        this.cantidadStock = new AtomicInteger(cantidadInicial);
+        this.codigo = GeneradorId.generarId();
+    }
+    
+    
 
     public int getCodigo() {return codigo;}
 

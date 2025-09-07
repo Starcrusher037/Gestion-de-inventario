@@ -56,4 +56,8 @@ public class ControlInventario {
         }
         else vista.mostrarMensaje("El producto no exite en el inventario");
     }
+    
+    public void mostrarInforme(){
+        vista.generarInforme(modelo.getProductos(),modelo.precioTotalInventario());
+    }
 }

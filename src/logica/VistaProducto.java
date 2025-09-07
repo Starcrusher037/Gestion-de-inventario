@@ -36,7 +36,7 @@ public class VistaProducto {
         System.out.println(mensaje);
     }
     
-    public void crearProducto(Producto producto){
+ /*   public void crearProducto(Producto producto){
     System.out.println("\nIngresa el nombre del producto");
         String nombre = sc.nextLine();
         System.out.println("Ingrese una descripcion del producto");
@@ -47,7 +47,7 @@ public class VistaProducto {
         int cantidad = sc.nextInt();
         sc.nextLine();     
     }
-    
+   */ 
     
     //REVISAR MANANA
     public void actualizarProducto(Producto producto){
