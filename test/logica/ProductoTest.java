@@ -6,7 +6,6 @@ import static org.junit.Assert.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class ProductoTest {
-
     private Producto producto;
 
     @Before
