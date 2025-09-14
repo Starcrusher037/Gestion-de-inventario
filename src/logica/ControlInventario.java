@@ -1,6 +1,10 @@
 
 package logica;
 
+import herramientasUtiles.CampoVacioException;
+import herramientasUtiles.PrecioNoValidoException;
+import herramientasUtiles.StockNoValidoException;
+
 public class ControlInventario {
     
     private VistaInventario vista ;
@@ -12,7 +16,7 @@ public class ControlInventario {
     }
     
     
-    public void agregarProductos(){
+    public void agregarProductos() throws CampoVacioException, PrecioNoValidoException, StockNoValidoException {
         Producto p = vista.crearProducto();
         if (modelo.existeProducto(p.getCodigo())) vista.mostrarMensaje("Ya existe un producto con ese nombre");
         else {
