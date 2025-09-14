@@ -1,6 +1,9 @@
 
 package logica;
 
+import herramientasUtiles.CampoVacioException;
+import herramientasUtiles.PrecioNoValidoException;
+import herramientasUtiles.StockNoValidoException;
 import herramientasUtiles.Validador;
 import java.util.HashMap;
 import java.util.Scanner;
@@ -13,16 +16,16 @@ public class VistaInventario {
     }
     
     //SOLICITA AL USUARIO INGRESAR LOS DATOS PARA CREAR UN PRODUCTO.
-    public Producto crearProducto(){
+    public Producto crearProducto() throws CampoVacioException, PrecioNoValidoException, StockNoValidoException{
         System.out.println("\nIngresa el nombre del producto");
-        String nombre = sc.nextLine();
+        String nombre = Validador.solicitarDatos(sc);
         System.out.println("Ingrese una descripcion del producto");
-        String descripcion = sc.nextLine();
+        String descripcion = Validador.solicitarDatos(sc);
         System.out.println("Ahora ingrese el precio del producto");
-        double precio = sc.nextDouble();
+        double precio = Validador.validarprecio(sc);
         System.out.println("Ingrese la cantidad de productos a disposicion");
-        int cantidad = sc.nextInt();
-        sc.nextLine();
+        int cantidad = Validador.validarIngresoStock(sc);
+
         return new Producto(nombre,descripcion,precio,cantidad);
     }
     

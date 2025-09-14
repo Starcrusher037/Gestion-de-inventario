@@ -36,6 +36,61 @@ public class Validador {
             }
         }
     }
+    
+    //VALIDA QUE LOS DATOS INGRESADOS A UN PRODUCTO NO SEAN CAMPOS VACIOS
+    public static String solicitarDatos(Scanner sc) throws CampoVacioException {
+        while (true){
+            try{
+                String datos = sc.nextLine(); 
+                if (datos.isBlank()) throw new CampoVacioException("El campo no puede estar vacio");
+                else {
+                return datos;
+                }
+            }catch(CampoVacioException e){
+                System.out.println(e.getMessage());
+            }
+        }
+    }
+    
+    //VALIDA que un precio no pueda ser negativo
+    public static double validarprecio(Scanner sc) throws PrecioNoValidoException {
+        double precio=0;
+        while (true) {
+            try{
+                try {
+                    precio = sc.nextDouble();
+                    sc.nextLine();
+                } catch (InputMismatchException e) {
+                    System.out.println("Tipo de dato incorrecto");
+                    sc.nextLine();
+                }
+                if (precio<=0) throw new PrecioNoValidoException("El precio no puede ser inferior o igual a cero");
+                else return precio;
+                }catch(PrecioNoValidoException e){
+                    System.out.println(e.getMessage());
+            }
+        }
+    }
+    
+    //VALIDA que un precio no pueda ser negativo
+    public static int validarIngresoStock(Scanner sc) throws StockNoValidoException {
+        int stock=0;
+        while (true) {
+            try{
+                try {
+                    stock = sc.nextInt();
+                    sc.nextLine();
+                } catch (InputMismatchException e) {
+                    System.out.println("Tipo de dato incorrecto");
+                    sc.nextLine();
+                }
+                if (stock<=0) throw new StockNoValidoException("El stock ingresado no puede ser igual o inferior a cero");
+                else return stock;
+                }catch(StockNoValidoException e){
+                    System.out.println(e.getMessage());
+            }
+        }
+    }
 
     /*Verifica caracteres y longitud del rut
     public static int verificarRut(Scanner sc) {

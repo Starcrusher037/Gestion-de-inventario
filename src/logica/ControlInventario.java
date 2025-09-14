@@ -48,6 +48,7 @@ public class ControlInventario {
         return null;
     }
     
+    
     public void eliminarProducto(){
         int id = vista.preguntarIdProducto();
         if (modelo.existeProducto(id)) {
@@ -59,5 +60,36 @@ public class ControlInventario {
     
     public void mostrarInforme(){
         vista.generarInforme(modelo.getProductos(),modelo.precioTotalInventario());
+    }
+    
+    
+    
+    
+     // METODOs SOBRECARGADOs PARA PRUEBAS AUTOMATICAS DE INTEGRACION
+    public Producto obtenerPorId(int id){    
+        for (Producto p : modelo.getProductos().values()){
+            if (p.getCodigo() == id) {
+            return p;
+            }
+        }
+        return null;
+    }
+    
+     public Producto obtenerPorNombre(String nombre){
+        Producto p;
+        if (modelo.consultaPorNombre(nombre)){
+            for (Producto prod : modelo.getProductos().values()){
+                if (prod.getNombre().equalsIgnoreCase(nombre)) return prod;
+            }
+        } 
+        return null;
+    }
+     
+      public void eliminarProducto(int id){
+        if (modelo.existeProducto(id)) {
+            modelo.eliminarProducto(id);
+            vista.mostrarMensaje("Producto eliminado del inventario");
+        }
+        else vista.mostrarMensaje("El producto no exite en el inventario");
     }
 }

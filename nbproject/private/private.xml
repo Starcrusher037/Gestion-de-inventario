@@ -3,6 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/56966/Desktop/PROYECTOS%20POO%202/gestionInventario/src/logica/VistaMenu.java</file>
+            <file>file:/C:/Users/56966/Desktop/PROYECTOS%20POO%202/gestionInventario/src/herramientasUtiles/PrecioNoValidoException.java</file>
             <file>file:/C:/Users/56966/Desktop/PROYECTOS%20POO%202/gestionInventario/src/logica/Inventario.java</file>
             <file>file:/C:/Users/56966/Desktop/PROYECTOS%20POO%202/gestionInventario/src/logica/App.java</file>
             <file>file:/C:/Users/56966/Desktop/PROYECTOS%20POO%202/gestionInventario/test/logica/InventarioTest.java</file>
@@ -14,6 +16,8 @@
             <file>file:/C:/Users/56966/Desktop/PROYECTOS%20POO%202/gestionInventario/src/logica/VistaProducto.java</file>
             <file>file:/C:/Users/56966/Desktop/PROYECTOS%20POO%202/gestionInventario/src/logica/Producto.java</file>
             <file>file:/C:/Users/56966/Desktop/PROYECTOS%20POO%202/gestionInventario/src/logica/ControlProducto.java</file>
+            <file>file:/C:/Users/56966/Desktop/PROYECTOS%20POO%202/gestionInventario/src/herramientasUtiles/CampoVacioException.java</file>
+            <file>file:/C:/Users/56966/Desktop/PROYECTOS%20POO%202/gestionInventario/src/herramientasUtiles/StockNoValidoException.java</file>
             <file>file:/C:/Users/56966/Desktop/PROYECTOS%20POO%202/gestionInventario/src/logica/ControlInventario.java</file>
             <file>file:/C:/Users/56966/Desktop/PROYECTOS%20POO%202/gestionInventario/test/logica/ProductoTest.java</file>
         </group>
